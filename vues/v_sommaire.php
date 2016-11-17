@@ -38,8 +38,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.php?uc=gererFrais&action=saisirFrais">Saisir mes fiches de frais </a></li>
-        <li class="active"><a href="index.php?uc=etatFrais&action=selectionnerMois">Mes fiches de frais</a></li>      
+        <li class="active"><a href="index.php?uc=gererFrais&action=saisirFrais">Saisir mes fiches de frais forfaitisées</a></li>
+        <li class="active"><a href="index.php?uc=gererFrais&action=saisirFrais">Saisir mes fiches de frais hors forfait</a></li>
+        <li class="active"><a href="index.php?uc=etatFrais&action=selectionnerMois">Mes fiches de frais</a></li>   
       </ul>
       <ul class="nav navbar-nav navbar-right">
 		  <li><a><?php echo $_SESSION['prenom']."  ".$_SESSION['nom']?></a></li>
