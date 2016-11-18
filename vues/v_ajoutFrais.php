@@ -18,7 +18,7 @@ echo"
 <tr>
 	<td>Montant engage</td>
 	<td>
-		<input  type='text' name=montant  size='30' maxlength='45'>
+		<input  type='text' name=montantEngage  size='30' maxlength='45'>
 	</td>
 </tr>
 <tr>
