@@ -14,6 +14,7 @@
 							$idFrais = $unFrais['idfrais'];
 							$libelle = $unFrais[	'libelle'];
 							$quantite = $unFrais['quantite'];
+                                                        $montant=$montant['montant'];
 					?>
 							<div class="form-group">
 								<label for="idFrais"><?php echo $libelle ?></label>
