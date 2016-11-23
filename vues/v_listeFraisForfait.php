@@ -14,11 +14,12 @@
 							$idFrais = $unFrais['idfrais'];
 							$libelle = $unFrais[	'libelle'];
 							$quantite = $unFrais['quantite'];
-                                                        $montant=$montant['montant'];
+                                                        $montant=$unFrais['montant'];
 					?>
 							<div class="form-group">
 								<label for="idFrais"><?php echo $libelle ?></label>
-								<input class="form-control" placeholder="<?php echo $quantite?>" type="text" id="idFrais" name="lesFrais[<?php echo $idFrais?>]""<?php echo $quantite?>"<?php if ($lesInfosFicheFrais['idEtat']!='CR') { echo 'disabled';} ?> >
+								<input class="form-control" placeholder="<?php echo $quantite?>" type="text" id="idFrais" name="lesFrais[<?php echo $idFrais?>]"
+                                                                       "<?php echo $quantite?>"<?php if ($lesInfosFicheFrais['idEtat']!='CR') { echo 'disabled';} ?> >
 							</div>
 
 					<?php

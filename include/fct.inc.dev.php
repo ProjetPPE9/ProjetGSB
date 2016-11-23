@@ -109,6 +109,7 @@ function creationFraisForfait($pdo)
 	{
 		$idVisiteur = $uneFicheFrais['idVisiteur'];
 		$mois =  $uneFicheFrais['mois'];
+                $montant=$uneFicheFrais['montant'];
 		foreach($lesIdFraisForfait as $unIdFraisForfait)
 		{
 			$idFraisForfait = $unIdFraisForfait['id'];
@@ -120,8 +121,8 @@ function creationFraisForfait($pdo)
 			{
 				$quantite =rand(2,20);
 			}
-			$req = "insert into LigneFraisForfait(idVisiteur,mois,idFraisForfait,quantite)
-			values('$idVisiteur','$mois','$idFraisForfait',$quantite);";
+			$req = "insert into LigneFraisForfait(idVisiteur,mois,idFraisForfait,quantite,montant)
+			values('$idVisiteur','$mois','$idFraisForfait','$quantite','$montant);";
 			$pdo->exec($req);	
 		}
 	}
