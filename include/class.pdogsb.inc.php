@@ -20,7 +20,7 @@ class PdoGsb{
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=ProjetGSB';   		
       	private static $user='root' ;    		
-      	private static $mdp='mysql' ;	
+      	private static $mdp='' ;	
 		private static $monPdo;
 		private static $monPdoGsb=null;
 		
@@ -291,7 +291,7 @@ class PdoGsb{
  * @return un tableau avec des champs de jointure entre une fiche de frais et la ligne d'état 
 */	
 	public function getLesInfosFicheFrais($idVisiteur,$mois){
-		$req = "select FicheFrais.idEtat as idEtat, FicheFrais.dateModif as dateModif, FicheFrais.nbJustificatifs as nbJustificatifs,FichesFrais.montant as montant 
+		$req = "select FicheFrais.idEtat as idEtat, FicheFrais.dateModif as dateModif, FicheFrais.nbJustificatifs as nbJustificatifs,FicheFrais.montant as montant, 
 			FicheFrais.montantValide as montantValide, Etat.libelle as libEtat from  FicheFrais inner join Etat on FicheFrais.idEtat = Etat.id 
 			where FicheFrais.idVisiteur ='$idVisiteur' and FicheFrais.mois = '$mois'";
 		$res = PdoGsb::$monPdo->query($req);
