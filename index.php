@@ -12,11 +12,14 @@ switch($uc){
 	case 'connexion':{
 		include("controleurs/c_connexion.php");break;
 	}
-	case 'gererFrais' :{
-		include("controleurs/c_gererFrais.php");break;
+	case 'gererFraisForfait' :{
+		include("controleurs/c_gererFraisForfait.php");break;
+	}
+        case 'gererFraisHorsForfait' :{
+		include("controleurs/c_gererFraisHorsForfait.php");break;
 	}
 	case 'etatFrais' :{
-		include("controleurs/c_etatFrais.php");break; 
+		include("controleurs/c_etatFrais.php");break;
 	}
 	
 	
