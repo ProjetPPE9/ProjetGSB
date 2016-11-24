@@ -12,6 +12,7 @@ switch($action){
 			$prenom = $_REQUEST['prenom'];
 			$login = $_REQUEST['login'];
 			$mdp =  $_REQUEST['mdp'];
+                        $mdp = MD5($mdp);
 			$type = $_REQUEST['type'];
 			$pdo->ajouterVisiteur($nom, $prenom, $login, $mdp, $type);
 			include('vues/v_redirection.php'); 
@@ -31,7 +32,7 @@ switch($action){
 	case 'valideConnexion':{
 		$login = $_REQUEST['login'];
 		$mdp = $_REQUEST ['mdp'];
-                // ici pour crypter le mdp 
+                $mdp = MD5($mdp);
 		$visiteur = $pdo->getInfosVisiteur($login,$mdp);
 		if(!is_array( $visiteur)){
 			ajouterErreur("Login ou mot de passe incorrect");
