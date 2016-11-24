@@ -49,7 +49,6 @@ switch($action){
 $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur,$mois);
 
 $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur,$mois);
-
 include("vues/v_listeFraisHorsForfait.php");
 
 ?>
