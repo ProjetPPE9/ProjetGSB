@@ -22,12 +22,6 @@ echo"
 	</td>
 </tr>
 <tr>
-	<td>Montant</td>
-	<td>
-		<input  type='text' name=montant  size='30' maxlength='45'>
-	</td>
-</tr>
-<tr>
 <td>Justificatif</td>
 <td><input type='radio' name='justificatif' value='oui'> oui
 </td>
