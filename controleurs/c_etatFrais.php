@@ -30,6 +30,7 @@ switch($action){
 		$dateModif =  $lesInfosFicheFrais['dateModif'];
 		$dateModif =  dateAnglaisVersFrancais($dateModif);
 		include("vues/v_etatFrais.php");
+                echo '<a href="fpdf/pdfsaisiesfrais.php" target="_blank"> Telecharger au Format PDF </a>';
 	}
 }
 ?>
