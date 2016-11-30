@@ -37,7 +37,7 @@
 <div class="col-md-6">
 	<div class="content-box-large">
 		<div class="panel-heading">
-			<legend>Elément hors forfait</legend>
+			<legend>Eléments hors forfait</legend>
 		</div>
 		<div class="panel-body">
 			<table class="table">
