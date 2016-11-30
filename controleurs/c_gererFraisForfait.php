@@ -54,7 +54,7 @@ switch($action){
 	}
 }
 
-//$montantFrais = $pdo->
+
 $lesFraisForfait= $pdo->getLesFraisForfait($idVisiteur,$mois);
 $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur,$mois);
 

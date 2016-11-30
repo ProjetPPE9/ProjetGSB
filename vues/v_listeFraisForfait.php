@@ -27,7 +27,6 @@
         
     ?>
                                 <option value="<?php echo $libelle ?>" onchange="document.getElementById('txtMontant').setAttribute('value', 'test');"> <?php echo $libelle ?> </option>
-            
     <?php
     
                         }                      
