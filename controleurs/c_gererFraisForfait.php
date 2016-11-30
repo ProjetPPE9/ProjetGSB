@@ -8,7 +8,6 @@
 
 <?php
 
-//include('../include/functions.js');
 include("vues/v_sommaire.php");
 include("vues/v_messageDate.php");
 $idVisiteur = $_SESSION['idVisiteur'];
