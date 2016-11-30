@@ -1,36 +1,88 @@
 <div class="col-md-6">
-	<div class="content-box-large">
+<div class="content-box-large">
 		<div class="panel-heading">
 			<div class="panel-title"><h2></h2></div>
 			</br></br>
-		  <legend>Ajouter élément forfaitisé</legend>			
+		  <legend>Eléments forfaitisés</legend>			
 		</div>
+            
 		<div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="index.php?uc=gererFraisForfait&action=validerMajFraisForfait">
-                          <div class="form-group">
-                                <?php
-                                    foreach ($lesFraisForfait as $unFrais)
-                                    {
-                                            $idFrais = $unFrais['idfrais'];
-                                            $libelle = $unFrais['libelle'];
-                                            $quantite = $unFrais['quantite'];
+			<form class="form-horizontal" role="form" method="POST"  action="index.php?uc=gererFraisForfait&action=validerMajFraisForfait">
+			  <div class="form-group">
+                              
+                <label for="cbFrais"> Nom du frais :</label>
+                </br>
+           
+                              
+                              <select class="form-control" id="cbFrais">
+   
+  <?php
+        
+        
+                foreach ($lesFraisForfait as $unFrais)
+			{
+				$idFrais = $unFrais['idfrais'];
+				$libelle = $unFrais['libelle'];
+				$montant = $unFrais['montant'];
+        
+    ?>
+                                  <option value="<?php echo $libelle ?>" onchange="document.getElementById('txtMontant').setAttribute('value', 'test');">  <?php echo $libelle ?> </option>
+            
+    <?php
+    
+                        }                      
+    ?>
+                              </select>       </div>
+            <div class="form-group">
+                <label for="txtMontant"> Montant :</label>
+                </br>
+                <input class="form-control" type="text" id="txtMontant" value="">
+            </div>
+            <div class="form-group">
+		<label for="txtDateHF"> Date : </label>
+		</br>
+                <input class="form-control" type="date" id="txtDateHF" name="dateFrais" <?php if ($lesInfosFicheFrais['idEtat']!='CR') { 		echo 'disabled';};   ?>/>
+		
+	    </div>
+            <div class="form-group">
+                <label for="textQuantite"> Quantite :</label>
+                </br>
+                <input class="form-control" type="number" id="textQuantite" >
+            </div>
+</select>
 
-                                ?>
-                                    <div class="form-group">
-                                            <label for="idFrais"><?php echo $libelle ?></label>
-                                            <input class="form-control" placeholder="<?php echo $quantite;?>" type="text" id="idFrais" name="lesFrais[<?php echo $idFrais;?>]"
-                                                   <?php if ($lesInfosFicheFrais['idEtat']!='CR') { echo 'disabled';} ?> >
-                                    </div>
+                              
+                              
+				<?php
+						foreach ($lesFraisForfait as $unFrais)
+						{
+							$idFrais = $unFrais['idfrais'];
+							$libelle = $unFrais[	'libelle'];
+							$quantite = $unFrais['quantite'];
+                                                        
+					?>
+<!--							<div class="form-group">
+								<label for="idFrais"><?php //echo $libelle ?></label>
+								<input class="form-control" placeholder="<?php //echo $quantite?>" type="text" id="idFrais" name="lesFrais[<?php //echo $idFrais?>]"
+                                                                       "<?php //echo $quantite?>"<?php //if ($lesInfosFicheFrais['idEtat']!='CR') { echo 'disabled';} ?> >
+							</div>-->
 
-                                <?php
-                                        }
-                                ?>
-                        </div>
-                        <input class="btn btn-primary" id="ok" type="submit" value="Valider" size="20" <?php if ($lesInfosFicheFrais['idEtat']!='CR') { echo 'disabled';} ?>/>
-                </div>
-                </form>
-        </div>
-</div>
+					<?php
+						}
+					?>
+                        </form> 
+				</div>
+				<input class="btn btn-primary" id="ok" type="submit" value="Valider" size="20" <?php if ($lesInfosFicheFrais['idEtat']!='CR') { echo 'disabled';} ?>/>
+			  </div>
+			
+		</div>
+	
+
+
+
+
+
+
 
 
 <div class="col-md-6">

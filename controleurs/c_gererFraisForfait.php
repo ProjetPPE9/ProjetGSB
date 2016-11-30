@@ -1,6 +1,14 @@
+<script>
+    function afficheMontant(montant)
+    {
+        document.getElementById('txtMontant').removeAttribute("value");
+        document.getElementById('txtMontant').setAttribute("value", montant);
+    }
+</script>
+
 <?php
 
-
+//include('../include/functions.js');
 include("vues/v_sommaire.php");
 include("vues/v_messageDate.php");
 $idVisiteur = $_SESSION['idVisiteur'];
@@ -36,17 +44,18 @@ switch($action){
 			include("vues/v_erreurs.php");
 		}
 		else{
-			$pdo->creeNouveauFraisHorsForfait($idVisiteur,$mois,$libelle,$dateFrais,$montant);
+			$pdo->creeNouveauFraisForfait($idVisiteur,$mois,$libelle,$dateFrais,$montant);
 		}
 		break;
 	}
 	case 'supprimerFrais':{
 		$idFrais = $_REQUEST['idFrais'];
-	    $pdo->supprimerFraisHorsForfait($idFrais);
+	    $pdo->supprimerFraisForfait($idFrais);
 		break;
 	}
 }
 
+//$montantFrais = $pdo->
 $lesFraisForfait= $pdo->getLesFraisForfait($idVisiteur,$mois);
 $lesInfosFicheFrais = $pdo->getLesInfosFicheFrais($idVisiteur,$mois);
 
