@@ -19,7 +19,7 @@
   <?php
         
         
-                foreach ($lesFraisForfait as $unFrais)
+                foreach ($listeFraisForfait as $unFrais)
 			{
 				$idFrais = $unFrais['idfrais'];
 				$libelle = $unFrais['libelle'];

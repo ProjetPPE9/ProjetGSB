@@ -312,6 +312,20 @@ class PdoGsb{
 		where FicheFrais.idVisiteur ='$idVisiteur' and FicheFrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
 	}
+        
+        
+ /**
+ * Retourne sous forme d'un tableau associatif tous les types de fraisforfait disponible
+ 
+ * @return l'id, le libelle,le montant sous la forme d'un tableau associatif 
+*/
+	public function getListeFraisForfait(){
+		$req = "select FraisForfait.id as idfrais, FraisForfait.libelle as libelle,FraisForfait.montant as montant
+                from FraisForfait";	
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes; 
+	}
 	
 	
 }
