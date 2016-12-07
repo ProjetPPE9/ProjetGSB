@@ -244,7 +244,7 @@ class PdoGsb{
 		PdoGsb::$monPdo->exec($req);
 		$lesIdFrais = $this->getLesIdFrais();
 		foreach($lesIdFrais as $uneLigneIdFrais){
-			$unIdFrais = $uneLigneIdFrais['idfrais'];
+			$unIdFrais = $uneLigneIdFrais['idFrais'];
 			$req = "insert into LigneFraisForfait(idVisiteur,mois,idFraisForfait,quantite) 
 			values('$idVisiteur','$mois','$unIdFrais',0)";
 			PdoGsb::$monPdo->exec($req);
@@ -267,6 +267,24 @@ class PdoGsb{
 		$dateFr = dateFrancaisVersAnglais($date);
 		$req = "insert into LigneFraisHorsForfait 
 		values(DEFAULT,'$idVisiteur','$mois','$libelle','$dateFr','$montant')";
+		PdoGsb::$monPdo->exec($req);
+	}
+        
+
+/**
+ * Crée un nouveau frais hors forfait pour un visiteur et un mois donné
+ * à partir des informations fournies en paramètre
+ 
+ * @param $idVisiteur 
+ * @param $mois sous la forme aaaamm
+ * @param $libelle : le libelle du frais
+ * @param $date : la date du frais au format anglais yyyy-mm-dd
+ * @param $montant : le montant
+*/
+	public function creeNouveauFraisForfait($idVisiteur,$dateFrais,$idFraisForfait,$quantite,$montant){ 
+                $montant = $montant * $quantite;
+		$req = "insert into LigneFraisForfait 
+		values('$idVisiteur','$dateFrais','$idFraisForfait',$quantite,$montant)";
 		PdoGsb::$monPdo->exec($req);
 	}
 	

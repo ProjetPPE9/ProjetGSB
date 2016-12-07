@@ -109,7 +109,7 @@ function estDateDepassee($dateTestee){
  * @return vrai ou faux
 */
 function estDateValide($date){
-	$tabDate = explode('/',$date);
+	$tabDate = explode('-',$date);
 	$dateOK = true;
 	if (count($tabDate) != 3) {
 	    $dateOK = false;
@@ -145,7 +145,7 @@ function lesQteFraisValides($lesFrais){
  * @param $libelle 
  * @param $montant
  */
-function valideInfosFrais($dateFrais,$libelle,$montant){
+function valideInfosFrais($dateFrais,$montant){
 	if($dateFrais==""){
 		ajouterErreur("Le champ date ne doit pas être vide");
 	}
@@ -158,9 +158,6 @@ function valideInfosFrais($dateFrais,$libelle,$montant){
 				ajouterErreur("date d'enregistrement du frais dépassé, plus de 1 an");
 			}			
 		}
-	}
-	if($libelle == ""){
-		ajouterErreur("Le champ description ne peut pas être vide");
 	}
 	if($montant == ""){
 		ajouterErreur("Le champ montant ne peut pas être vide");
@@ -193,5 +190,20 @@ function nbErreurs(){
 	else{
 	   return count($_REQUEST['erreurs']);
 	}
+}
+
+/**
+ * retourne le mois au format aaaammjj selon le jour dans le mois
+ 
+ * @param $date au format  jj/mm/aaaa
+ * @return le mois au format aaaammjj
+*/
+
+function getDateFormate($date){
+		@list($annee,$mois,$jour) = explode('-',$date);
+		if(strlen($mois) == 1){
+			$mois = "0".$mois;
+		}
+		return $annee.$mois.$jour;
 }
 ?>

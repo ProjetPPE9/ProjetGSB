@@ -10,16 +10,16 @@
 									<?php
 						foreach ($lesMois as $unMois)
 						{
-							$mois = $unMois['mois'];
+							$date = $unMois['mois'];
 							$numAnnee =  $unMois['numAnnee'];
 							$numMois =  $unMois['numMois'];
-							if($mois == $moisASelectionner){
+							if($date == $moisASelectionner){
 							?>
-							<option selected value="<?php echo $mois ?>"><?php echo  $numMois."/".$numAnnee ?> </option>
+							<option selected value="<?php echo $date ?>"><?php echo  $numMois."/".$numAnnee ?> </option>
 							<?php 
 							}
 							else{ ?>
-							<option value="<?php echo $mois ?>"><?php echo  $numMois."/".$numAnnee ?> </option>
+							<option value="<?php echo $date ?>"><?php echo  $numMois."/".$numAnnee ?> </option>
 							<?php 
 							}
 						
