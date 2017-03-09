@@ -369,5 +369,19 @@ class PdoGsb{
 	}
 	
 	
+
+ /**
+ * Retourne sous forme d'un tableau associatif tous les types de fraisforfait disponible
+ 
+ * @return l'id, le libelle,le montant sous la forme d'un tableau associatif 
+*/
+	public function getCodeInterruption(){
+		$req = "SELECT codeInterruption FROM interruption";	
+		$res = PdoGsb::$monPdo->query($req);
+		$laLigne = $res->fetch();
+		return $laLigne; 
+	}
+	
+	
 }
 ?>
