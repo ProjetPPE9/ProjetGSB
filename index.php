@@ -4,9 +4,11 @@ require_once ("include/class.pdogsb.inc.php");
 session_start();
 $pdo = PdoGsb::getPdoGsb();
 $estConnecte = estConnecte();
+$codeInterruption = $pdo->getCodeInterruption()[0];
+
 if(!isset($_REQUEST['uc']) || !$estConnecte){
      $_REQUEST['uc'] = 'connexion';
-}	 
+} 
 $uc = $_REQUEST['uc'];
 switch($uc){
 	case 'connexion':{
