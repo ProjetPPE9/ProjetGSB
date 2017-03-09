@@ -5,7 +5,9 @@ require_once ("include/fct.inc.php");
 require("fpdf.php");
 $pdo1 = PdoGsb::getPdoGsb();
 $idVisiteur = $_SESSION['idVisiteur'];
-$mois = getMois(date('d/m/y'));
+$mois = getMois($_REQUEST['lstMois']);
+echo $mois;
+echo $idVisiteur;
 
 class PDF extends FPDF {
     // Header
@@ -49,7 +51,7 @@ $pdf->AddPage();
 $pdf->SetFont('Helvetica','',11);
 $pdf->SetTextColor(0);
 $intervalleH = 30;
-//$position_detail = 66;
+$position_detail = 150;
 $pdf->Text(50,8,"Recapitulatif des fiches de frais de ".utf8_decode($_SESSION['prenom']).' '.utf8_decode($_SESSION['nom']));
 $pdf->entete_table($intervalleH);
 
@@ -85,7 +87,7 @@ foreach ($leshorsforfait as $unfraishf)
     $pdf->MultiCell(41,10,"Frais Hors Forfait",1,'C');
     $pdf->SetY($position_detail);
     $pdf->SetX(84);
-    $pdf->MultiCell(41,10,utf8_decode(aide($unfraishf['libelle'])),1,'C');
+    $pdf->MultiCell(41,10,utf8_decode($unfraishf['libelle']),1,'C');
     $pdf->SetY($position_detail);
     $pdf->SetX(125);
     $pdf->MultiCell(41,10,"1",1,'C');

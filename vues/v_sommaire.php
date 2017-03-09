@@ -33,21 +33,22 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Galaxy Swiss Bourdin</a>
+      <a class="navbar-brand" href="#">GSB</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="index.php?uc=gererFraisForfait&action=saisirFrais">Saisir mes fiches de frais forfaitisées</a></li>
-        <li class="active"><a href="index.php?uc=gererFraisHorsForfait&action=saisirFrais">Saisir mes fiches de frais hors forfait</a></li>
-        <li class="active"><a href="index.php?uc=etatFrais&action=selectionnerMois">Mes fiches de frais</a></li>   
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-		  <li><a><?php echo $_SESSION['prenom']."  ".$_SESSION['nom']?></a></li>
-                  <li><a><?php if($_SESSION['idProfil'] == 1){ echo "Visiteur Médical";} else{echo "Comptable";}?></a></li>
-        <li class="active"><a href="index.php?uc=connexion&action=deconnexion">Se déconnecter </a></li>
-     </ul>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="index.php?uc=gererFraisForfait&action=saisirFrais">Saisir mes fiches de frais forfaitisées</a></li>
+            <li class="active"><a href="index.php?uc=gererFraisHorsForfait&action=saisirFrais">Saisir mes fiches de frais hors forfait</a></li>
+            <li class="active"><a href="index.php?uc=etatFrais&action=selectionnerMois">Mes fiches de frais</a></li>   
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="appliAndroid/SuivAA.apk"><img src="images/android.png" height="35" width="35" alt=""/></a></li>       
+            <li><a><?php echo $_SESSION['prenom']."  ".$_SESSION['nom']?></a></li>
+            <li><a><?php if($_SESSION['idProfil'] == 1){ echo "Visiteur Médical";} else{echo "Comptable";}?></a></li>
+            <li class="active"><a href="index.php?uc=connexion&action=deconnexion">Se déconnecter </a></li>
+        </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
