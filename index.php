@@ -4,8 +4,12 @@ require_once ("include/class.pdogsb.inc.php");
 session_start();
 $pdo = PdoGsb::getPdoGsb();
 $estConnecte = estConnecte();
-$codeInterruption = $pdo->getCodeInterruption()[0];
-
+if ($pdo->getCodeInterruption()[0]==0)
+{
+    include("vues/v_interruption.php");
+}
+else
+{
 if(!isset($_REQUEST['uc']) || !$estConnecte){
      $_REQUEST['uc'] = 'connexion';
 } 
@@ -29,7 +33,7 @@ switch($uc){
 	
 	
 
-
+}
 ?>
 
 
