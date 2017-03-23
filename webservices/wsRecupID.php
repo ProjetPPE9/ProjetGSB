@@ -1,18 +1,27 @@
 <?php
 
-include 'wsVerifConnexionBDD.php';
+include_once 'PasserelleConnexion.php';
+$bd=PasserelleConnexion::connexionBDD();
+$bd->query("SET CHARACTER SET utf8");
 if ($bd!=false)
 {
-$identifiant = $_GET['identifiant'];
-$requeteId="select id from utilisateur where login='".$identifiant."'";
-$reqId = $bd->query($requeteId);
-$id = $reqId->fetch();
+
+//$login=$_GET['login'];
+//$mdp=$_GET['mdp'];
+$requeteId=$bd->prepare("Select id "
+        . "from utilisateur "
+        . "where login= :login and mdp= :mdp");
+$requeteId->bindValue('login','dandre');
+$requeteId->bindValue('mdp',MD5('oppg5'));
+
+$requeteId->execute();
+$id = $requeteId->fetch();
 
 
-print (json_encode($id)); 
+print (json_encode($id[0])); 
 }
 else
 {
-echo $bd;
+echo 'échec connexion';
 }
 ?>

@@ -1,17 +1,28 @@
 <?php
 
+include_once 'PasserelleConnexion.php';
+$bd=PasserelleConnexion::connexionBDD(); 
+$bd->query("SET CHARACTER SET utf8");
 
-$identifiant = $_GET['identifiant'];
-$requeteId="select id from utilisateur where login='".$identifiant."'";
-$reqId = $pdo->query($requeteId);
-$id = $reqId->fetch();
+//$login=$_GET['login'];
+//$mdp=$_GET['mdp'];
+$requeteId=$bd->prepare("Select id "
+        . "from utilisateur "
+        . "where login= :login and mdp= :mdp");
+$requeteId->bindValue('login','dandre');
+$requeteId->bindValue('mdp',MD5('oppg5'));
+
+$requeteId->execute();
+$id = $requeteId->fetch();
 
 
-$requeteMedecin="select * from medecin where idVisiteur='".$id[0]."'";
-$reqMedecin = $pdo->query($requeteMedecin);
+$requeteMedecin=$bd->prepare("select * "
+        . "from medecin "
+        . "where idVisiteur= :id");
+$requeteMedecin->bindValue('id',$id[0]);
 
-$medecins = $reqMedecin->fetchAll(PDO::FETCH_ASSOC);
-
+$requeteMedecin->execute();
+$medecins = $requeteMedecin->fetchAll();
 
 $medecins = json_encode($medecins,JSON_UNESCAPED_UNICODE);
 
