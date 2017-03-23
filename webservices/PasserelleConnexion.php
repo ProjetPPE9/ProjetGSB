@@ -6,7 +6,7 @@
             try
             {
                $dsn = 'mysql:host=localhost;dbname=projetgsb';
-               $bd = new PDO('$dsn, charset=utf8', "root", "");
+               $bd = new PDO($dsn, "root", "");
             }
             catch(PDOException $e)
             {
