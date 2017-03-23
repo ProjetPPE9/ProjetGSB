@@ -6,7 +6,9 @@
     //permet la connexion à la BDD
     $verif=PasserelleConnexion::connexionBDD();
     
-    json_encode($verif);
+    
+    var_dump($verif);
+    //json_encode($verif);
     //echo json_decode($verif);
     
     

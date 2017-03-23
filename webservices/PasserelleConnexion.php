@@ -6,8 +6,7 @@
             try
             {
                $dsn = 'mysql:host=localhost;dbname=projetgsb';
-               $bd = new PDO($dsn, "root", "");
-               $bd->query("SET CHARACTER SET utf8");
+               $bd = new PDO('$dsn, charset=utf8', "root", "");
             }
             catch(PDOException $e)
             {
