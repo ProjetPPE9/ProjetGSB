@@ -4,7 +4,7 @@ require_once ("include/class.pdogsb.inc.php");
 session_start();
 $pdo = PdoGsb::getPdoGsb();
 $estConnecte = estConnecte();
-if ($pdo->getCodeInterruption()[0]==0)
+if ($pdo->getCodeInterruption()[0]==1)
 {
     include("vues/v_interruption.php");
 }
