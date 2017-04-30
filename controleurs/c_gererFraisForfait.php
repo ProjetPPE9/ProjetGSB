@@ -29,7 +29,7 @@ switch($action){
 	}
 	case 'validerCreationFrais':{
 		$dateFrais = $_REQUEST['dateFrais'];
-                $dateFrais = getDateFormate($dateFrais);
+                $dateFrais = getDateFormateFr($dateFrais);
 		$idFraisForfait = $_REQUEST['cbFrais'];
                 $quantite = $_REQUEST['txtQuantite'];
 		$montant = $_REQUEST['txtMontant'];
@@ -38,7 +38,7 @@ switch($action){
 			include("vues/v_erreurs.php");
 		}
 		else{
-			$pdo->creeNouveauFraisForfait($idVisiteur,$date,$idFraisForfait,$quantite,$montant);
+			$pdo->creeNouveauFraisForfait($idVisiteur,$dateFrais,$idFraisForfait,$quantite,$montant);
 		}
 		break;
 	}
