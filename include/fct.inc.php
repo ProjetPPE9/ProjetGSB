@@ -206,4 +206,16 @@ function getDateFormate($date){
 		}
 		return $annee.$mois.$jour;
 }
+
+/**
+
+*/
+
+function getDateFormateFr($date){
+		@list($annee,$mois,$jour) = explode('-',$date);
+		if(strlen($mois) == 1){
+			$mois = "0".$mois;
+		}
+		return $jour.$mois.$annee;
+}
 ?>

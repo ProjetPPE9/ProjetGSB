@@ -70,7 +70,7 @@
                 ?>
                 <!-- ---------------------------->
                 
-                <input class="btn btn-primary" id="ok" name="btnValiderFraisForfait" type="submit" value="Valider" size="20" <?php /*if ($lesInfosFicheFrais['idEtat']!='CR') { echo 'disabled';}*/ ?>/>
+                <input class="btn btn-primary" id="ok" name="btnValiderFraisForfait" type="submit" value="Valider" size="20" <?php /*if ($lesInfosFicheFrais['idEtat']!='CR') { echo 'disabled';} */?>/>
                 
             </form> 
             
