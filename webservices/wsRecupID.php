@@ -6,13 +6,13 @@ $bd->query("SET CHARACTER SET utf8");
 if ($bd!=false)
 {
 
-//$login=$_GET['login'];
-//$mdp=$_GET['mdp'];
+$login=$_GET['login'];
+$mdp=$_GET['mdp'];
 $requeteId=$bd->prepare("Select id "
         . "from utilisateur "
         . "where login= :login and mdp= :mdp");
-$requeteId->bindValue('login','dandre');
-$requeteId->bindValue('mdp',MD5('oppg5'));
+$requeteId->bindValue('login',$login);
+$requeteId->bindValue('mdp',MD5($mdp));
 
 $requeteId->execute();
 $id = $requeteId->fetch();
